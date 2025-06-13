@@ -8,7 +8,6 @@ form.addEventListener("submit", function(event){
     event.preventDefault();
     const city = cityInput.value.trim();
     console.log("City entered", city);
-    const apiKey = "547c28d681b88444ad7b2e9e80426a22";
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 fetch(apiUrl)
 .then(response => response.json())
