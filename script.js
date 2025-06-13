@@ -15,14 +15,18 @@ fetch(apiUrl)
 .then(data => {
     console.log("Weather data: ", data);
     
-
+if(data.cod === "404"){
+    resultContainer.innerHTML = `<p> City not found. Please try again.</p>`;
+    return;
+}
     const temperature = data.main.temp;
     const description = data.weather[0].description;
     const cityName = data.name;
+    const formattedDescription = description.charAt(0).toUpperCase() + description.slice(1);
 
 resultContainer.innerHTML = `
   <h2>${cityName}</h2>
-  <p>${description}</p>
+  <p>${formattedDescription}</p>
   <p>${temperature}°C</p>
 `;
 
